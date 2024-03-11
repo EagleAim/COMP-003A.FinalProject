@@ -18,7 +18,6 @@ namespace COMP_003A.FinalProject
             Console.WriteLine("".PadRight(50, '*'));
             Console.WriteLine("Welcome to Kings County Medical");
             Console.WriteLine("Please enter the apropiate information below to create a account");
-            Console.WriteLine("PRESS ENTER TO CONTINUTE");
             Console.WriteLine("".PadRight(50, '*'));
 
             ///<summary>
@@ -28,62 +27,74 @@ namespace COMP_003A.FinalProject
 
 
             //FIRST NAME AND LAST NAME
-            Console.WriteLine("PLEASE ENTER FIRST NAME");
+            Console.WriteLine("\tPLEASE ENTER FIRST NAME");
             string firstName = Console.ReadLine();
-            firstName = Console.ReadLine();
 
-            Console.WriteLine("PLEASE ENTER LAST NAME");
+
+            Console.WriteLine("\tPLEASE ENTER LAST NAME");
             string lastName = Console.ReadLine();
-            lastName = Console.ReadLine();
 
             //AGE
-            Console.WriteLine("PLEASE ENTER YOUR BIRTHYEAR");
+            Console.WriteLine("\tPLEASE ENTER YOUR BIRTHYEAR");
             string inputAge = Console.ReadLine();
-            int yearBorn = DateTime.Now.Year - Convert.ToInt32(inputAge);
-            inputAge = Console.ReadLine();
 
-            if (yearBorn >= 1900 && yearBorn <= DateTime.Now.Year)
+            int currentYear = DateTime.Now.Year;
+            int yearBorn = Convert.ToInt32(inputAge);
+
+            if (yearBorn >= 1900 && yearBorn <= currentYear)
             {
-
+                int currentAge = currentYear - yearBorn;
+                yearBorn = currentAge;
+                Console.WriteLine($"{currentAge}");
+                
             }
 
             else
             {
-                Console.WriteLine("\t Invalid Age");
+                Console.WriteLine("Invalid Age");
+                
             }
 
 
 
             //GENDER
-            Console.WriteLine("PLEASE ENTER YOUR GENDER USING M, F, OR O");
+            Console.WriteLine("\tPLEASE ENTER YOUR GENDER USING M, F, OR O");
             string inputGender = Console.ReadLine();
-            inputGender = Console.ReadLine();
 
-            if (inputGender == "M")
+            if (string.Equals(inputGender, "m", StringComparison.InvariantCultureIgnoreCase))
             {
-                Console.WriteLine("\tMale");
+                Console.WriteLine("Male");
+                var genderDetector = Console.ReadLine();
+                inputGender = genderDetector;
             }
-            else if (inputGender == "F")
+            else if (string.Equals(inputGender, "f", StringComparison.InvariantCultureIgnoreCase))
             {
-                Console.WriteLine("\tFemale");
+                Console.WriteLine("Female");
+                var genderDetector = Console.ReadLine();
+                inputGender = genderDetector;
             }
-
-            else if (inputGender == "O") 
+            else if (string.Equals(inputGender, "o", StringComparison.InvariantCultureIgnoreCase))
             {
-                Console.WriteLine("\tOther not listed");
+                Console.WriteLine("Other not listed");
+                var genderDetector = Console.ReadLine();
+                inputGender = genderDetector;
             }
-
             else
             {
-                Console.WriteLine("\tInvalid Response");
+                Console.WriteLine("Invalid input");
+                var genderDetector = Console.ReadLine();
+                inputGender = genderDetector;
             }
 
 
-            
+            // Basic Info Log
+            Console.WriteLine("".PadRight(50, '*'));
+            Console.WriteLine("BASIC INFO");
             Console.WriteLine($"First Name: {firstName}");
             Console.WriteLine($"Last Name: {lastName}");
-            Console.WriteLine($"Age: {inputAge}");
+            Console.WriteLine($"Age: {yearBorn}");
             Console.WriteLine($"Gender: {inputGender}");
+            Console.WriteLine("".PadRight(50, '*'));
         }
     }
 }
