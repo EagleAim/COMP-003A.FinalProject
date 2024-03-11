@@ -4,9 +4,6 @@
  * Purpouse: To show our skills with C# in a final project.
 */
 
-
-
-
 using System.Runtime.Intrinsics.X86;
 
 namespace COMP_003A.FinalProject
@@ -45,14 +42,11 @@ namespace COMP_003A.FinalProject
             {
                 int currentAge = currentYear - yearBorn;
                 yearBorn = currentAge;
-                Console.WriteLine($"{currentAge}");
-                
             }
 
             else
             {
                 Console.WriteLine("Invalid Age");
-                
             }
 
 
@@ -60,32 +54,36 @@ namespace COMP_003A.FinalProject
             //GENDER
             Console.WriteLine("\tPLEASE ENTER YOUR GENDER USING M, F, OR O");
             string inputGender = Console.ReadLine();
+            char charinputGender = Convert.ToChar(inputGender);
 
-            if (string.Equals(inputGender, "m", StringComparison.InvariantCultureIgnoreCase))
-            {
-                Console.WriteLine("Male");
-                var genderDetector = Console.ReadLine();
-                inputGender = genderDetector;
-            }
-            else if (string.Equals(inputGender, "f", StringComparison.InvariantCultureIgnoreCase))
-            {
-                Console.WriteLine("Female");
-                var genderDetector = Console.ReadLine();
-                inputGender = genderDetector;
-            }
-            else if (string.Equals(inputGender, "o", StringComparison.InvariantCultureIgnoreCase))
-            {
-                Console.WriteLine("Other not listed");
-                var genderDetector = Console.ReadLine();
-                inputGender = genderDetector;
-            }
-            else
-            {
-                Console.WriteLine("Invalid input");
-                var genderDetector = Console.ReadLine();
-                inputGender = genderDetector;
-            }
+            Console.WriteLine(SwitchGender(charinputGender));
 
+
+            static string SwitchGender(char input)
+            {
+                switch (input)
+                {
+                    case 'M':
+                    case 'm':
+                        {
+                            return "Male";
+                        }
+                    case 'F':
+                    case 'f':
+                        {
+                            return "Female";
+                        }
+                    case 'O':
+                    case 'o':
+                        {
+                            return "Other Not Listed";
+                        }
+                    default:
+                        {
+                            return "Invalid Input";
+                        }
+                }
+            }
 
             // Basic Info Log
             Console.WriteLine("".PadRight(50, '*'));
