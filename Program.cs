@@ -18,11 +18,11 @@ namespace COMP_003A.FinalProject
 
             //FIRST NAME AND LAST NAME
             Console.WriteLine("\tPLEASE ENTER FIRST NAME");
-            string firstName = Console.ReadLine();
-
-
+            var firstName = Console.ReadLine();
             Console.WriteLine("\tPLEASE ENTER LAST NAME");
-            string lastName = Console.ReadLine();
+            var lastName = Console.ReadLine();
+
+
 
             //AGE
             Console.WriteLine("\tPLEASE ENTER YOUR BIRTHYEAR");
@@ -47,10 +47,12 @@ namespace COMP_003A.FinalProject
             //GENDER
             Console.WriteLine("\tPLEASE ENTER YOUR GENDER USING M, F, OR O");
             string inputGender = Console.ReadLine();
+
             char charinputGender = Convert.ToChar(inputGender);
 
+            genderCalc(charinputGender);
 
-            Console.WriteLine((charinputGender));
+            Console.WriteLine($"{charinputGender}");
 
             // Basic Info Log
             Console.WriteLine("".PadRight(50, '*'));
@@ -162,34 +164,36 @@ namespace COMP_003A.FinalProject
             Console.WriteLine(PaitentInfo);
             Console.WriteLine("Thank for your information all of this will be sent to our staff, we will contact with your new provider soon. Thank you!");
         }
-    }
 
 
-    static string genderCalc (char input)
-                {
-                    switch (input)
+        static string genderCalc(char input)
+        {
+            switch (input)
+            {
+                case 'M':
+                case 'm':
                     {
-                        case 'M':
-                        case 'm':
-                            {
-                                return "Male";
-                            }
-                        case 'F':
-                        case 'f':
-                            {
-                                return "Female";
-                            }
-                        case 'O':
-                        case 'o':
-                            {
-                                return "Other Not Listed";
-                            }
-                        default:
-                            {
-                                return "Invalid Input";
-                            }
+                        return "Male";
                     }
-                }
+                case 'F':
+                case 'f':
+                    {
+                        return "Female";
+                    }
+                case 'O':
+                case 'o':
+                    {
+                        return "Other Not Listed";
+                    }
+                default:
+                    {
+                        return "Invalid Input";
+                    }
+                    ///<summary>
+                    ///Gender calculator to 
+                    /// </summary>
+            }
+        }
 
 
 
@@ -200,15 +204,6 @@ namespace COMP_003A.FinalProject
 
 
 
-
-
-
-
-
-
-
-
-
-
+    }
 }
 
