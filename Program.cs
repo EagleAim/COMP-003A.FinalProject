@@ -4,8 +4,6 @@
  * Purpouse: To show our skills with C# in a final project.
 */
 
-using System.Runtime.Intrinsics.X86;
-
 namespace COMP_003A.FinalProject
 {
     internal class Program
@@ -16,11 +14,6 @@ namespace COMP_003A.FinalProject
             Console.WriteLine("Welcome to Kings County Medical");
             Console.WriteLine("Please enter the apropiate information below to create a account");
             Console.WriteLine("".PadRight(50, '*'));
-
-            ///<summary>
-            ///Basic Information Section
-            /// </summary>
-
 
 
             //FIRST NAME AND LAST NAME
@@ -56,7 +49,8 @@ namespace COMP_003A.FinalProject
             string inputGender = Console.ReadLine();
             char charinputGender = Convert.ToChar(inputGender);
 
-            Console.WriteLine(SwitchGender(charinputGender));
+
+            Console.WriteLine((charinputGender));
 
             // Basic Info Log
             Console.WriteLine("".PadRight(50, '*'));
@@ -167,44 +161,54 @@ namespace COMP_003A.FinalProject
             //all the inputs
             Console.WriteLine(PaitentInfo);
             Console.WriteLine("Thank for your information all of this will be sent to our staff, we will contact with your new provider soon. Thank you!");
-
-
-
-
-
-
-
-
-
-
-            ///<summary>
-            ///Gender calculator
-            /// </summary>
-            static string SwitchGender(char input)
-            {
-                switch (input)
-                {
-                    case 'M':
-                    case 'm':
-                        {
-                            return "Male";
-                        }
-                    case 'F':
-                    case 'f':
-                        {
-                            return "Female";
-                        }
-                    case 'O':
-                    case 'o':
-                        {
-                            return "Other Not Listed";
-                        }
-                    default:
-                        {
-                            return "Invalid Input";
-                        }
-                }
-            }
         }
     }
+
+
+    static string genderCalc (char input)
+                {
+                    switch (input)
+                    {
+                        case 'M':
+                        case 'm':
+                            {
+                                return "Male";
+                            }
+                        case 'F':
+                        case 'f':
+                            {
+                                return "Female";
+                            }
+                        case 'O':
+                        case 'o':
+                            {
+                                return "Other Not Listed";
+                            }
+                        default:
+                            {
+                                return "Invalid Input";
+                            }
+                    }
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
